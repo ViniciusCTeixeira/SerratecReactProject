@@ -377,7 +377,7 @@ export function Categorias() {
             </Paper>
             <FormControlLabel
                 control={<Switch checked={dense} onChange={handleChangeDense}/>}
-                label="Dense padding"
+                label="Ajustar Densidade"
                 />
                 <AddCategoria/>
                 </Box>
