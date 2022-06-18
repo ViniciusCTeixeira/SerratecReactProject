@@ -20,41 +20,32 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
+import TextField from '@mui/material/TextField';
+import {AddCategoria} from './AddCategoria'
 
 import '../../Assets/Styles/CategoriaStyle.css'
 
 interface Data {
-    calories: number;
-    carbs: number;
-    fat: number;
-    name: string;
-    protein: number;
+    codigo: number;
+    nome: string;
+    descricao: string;
 }
 
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number): Data {
+function createData(  codigo: number, nome: string, descricao: string): Data {
     return {
-        name,
-        calories,
-        fat,
-        carbs,
-        protein,
+       codigo,
+       nome,
+       descricao
+        
     };
 }
 
 const rows = [
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Donut', 452, 25.0, 51, 4.9),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-    createData('Honeycomb', 408, 3.2, 87, 6.5),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Jelly Bean', 375, 0.0, 94, 0.0),
-    createData('KitKat', 518, 26.0, 65, 7.0),
-    createData('Lollipop', 392, 0.2, 98, 0.0),
-    createData('Marshmallow', 318, 0, 81, 2.0),
-    createData('Nougat', 360, 19.0, 9, 37.0),
-    createData('Oreo', 437, 18.0, 63, 4.0),
+    createData(1, "Televisão", "Para ver filmes"),
+    createData(2, "Monitor", "Para jogar"),
+    createData(3, "Computador", "Para jogar")
+    
+
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -104,35 +95,24 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
     {
-        id: 'name',
+        id: 'codigo',
         numeric: false,
         disablePadding: true,
-        label: 'Dessert (100g serving)',
+        label: 'Código',
     },
     {
-        id: 'calories',
+        id: 'nome',
         numeric: true,
         disablePadding: false,
-        label: 'Calories',
+        label: 'Nome',
     },
     {
-        id: 'fat',
+        id: 'descricao',
         numeric: true,
         disablePadding: false,
-        label: 'Fat (g)',
+        label: 'Descrição',
     },
-    {
-        id: 'carbs',
-        numeric: true,
-        disablePadding: false,
-        label: 'Carbs (g)',
-    },
-    {
-        id: 'protein',
-        numeric: true,
-        disablePadding: false,
-        label: 'Protein (g)',
-    },
+   
 ];
 
 interface EnhancedTableProps {
@@ -248,11 +228,15 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
 
 export function Categorias() {
     const [order, setOrder] = React.useState<Order>('asc');
-    const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
+    const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [name, setName] = React.useState('Cat in the Hat');
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setName(event.target.value);
+    };
 
     const handleRequestSort = (
         event: React.MouseEvent<unknown>,
@@ -265,19 +249,19 @@ export function Categorias() {
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
-            const newSelecteds = rows.map((n) => n.name);
+            const newSelecteds = rows.map((n) => n.nome);
             setSelected(newSelecteds);
             return;
         }
         setSelected([]);
     };
 
-    const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-        const selectedIndex = selected.indexOf(name);
+    const handleClick = (event: React.MouseEvent<unknown>, nome: string) => {
+        const selectedIndex = selected.indexOf(nome);
         let newSelected: readonly string[] = [];
 
         if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, name);
+            newSelected = newSelected.concat(selected, nome);
         } else if (selectedIndex === 0) {
             newSelected = newSelected.concat(selected.slice(1));
         } else if (selectedIndex === selected.length - 1) {
@@ -305,13 +289,14 @@ export function Categorias() {
         setDense(event.target.checked);
     };
 
-    const isSelected = (name: string) => selected.indexOf(name) !== -1;
+    const isSelected = (nome: string) => selected.indexOf(nome) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
+       
         <Box sx={{width: '100%'}}>
             <Paper sx={{width: '100%', mb: 2}}>
                 <EnhancedTableToolbar numSelected={selected.length}/>
@@ -333,17 +318,17 @@ export function Categorias() {
                             {stableSort(rows, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
-                                    const isItemSelected = isSelected(row.name);
+                                    const isItemSelected = isSelected(row.nome);
                                     const labelId = `enhanced-table-checkbox-${index}`;
 
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, row.name)}
+                                            onClick={(event) => handleClick(event, row.nome)}
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.name}
+                                            key={row.nome}
                                             selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
@@ -361,14 +346,12 @@ export function Categorias() {
                                                 scope="row"
                                                 padding="none"
                                             >
-                                                {row.name}
+                                                {row.nome}
                                             </TableCell>
-                                            <TableCell align="right">{row.calories}</TableCell>
-                                            <TableCell align="right">{row.fat}</TableCell>
-                                            <TableCell align="right">{row.carbs}</TableCell>
-                                            <TableCell align="right">{row.protein}</TableCell>
+                                            <TableCell align="right">{row.nome}</TableCell>
+                                            <TableCell align="right">{row.descricao}</TableCell>
                                         </TableRow>
-                                    );
+                                         );
                                 })}
                             {emptyRows > 0 && (
                                 <TableRow
@@ -395,7 +378,9 @@ export function Categorias() {
             <FormControlLabel
                 control={<Switch checked={dense} onChange={handleChangeDense}/>}
                 label="Dense padding"
-            />
-        </Box>
-    );
+                />
+                <AddCategoria/>
+                </Box>
+                
+                );
 }
