@@ -1,8 +1,8 @@
-import {Navbar} from '../components/Navbar';
-import {Footer} from '../components/Footer';
+import {Navbar} from '../Components/Navbar';
+import {Footer} from '../Components/Footer';
 import {AppRoutes} from "../Routes";
 
-export function App() {
+export function Main() {
     return (
         <main>
             <Navbar />

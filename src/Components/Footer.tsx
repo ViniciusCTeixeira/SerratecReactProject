@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Container, Row, Column, FooterLink, Heading} from "../assets/styles/FooterStyle";
+import {Box, Container, Row, Column, FooterLink, Heading} from "../Assets/Styles/FooterStyle";
 
 export function Footer() {
     return (

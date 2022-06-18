@@ -1,13 +1,16 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import {Login} from './pages/Login';
+import {Login} from './Pages/User/Login';
+import {Home} from './Pages/Home/Home';
 
 export function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/"/>
+                <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/cadastro" element={<Login/>}/>
+                <Route path="/produtos" element={<Login/>}/>
             </Routes>
         </BrowserRouter>
     );
