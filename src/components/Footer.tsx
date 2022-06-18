@@ -1,7 +1,7 @@
 import React from "react";
 import {Box, Container, Row, Column, FooterLink, Heading} from "../assets/styles/FooterStyle";
 
-export default function Footer() {
+export function Footer() {
     return (
         <Box>
             <h1 style={{

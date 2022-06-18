@@ -3,7 +3,7 @@ import {BrowserRouter} from 'react-router-dom';
 import LogoImg from '../assets/img/logo.png';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, Logo} from '../assets/styles/NavbarStyle';
 
-export default function Navbar() {
+export function Navbar() {
     return (
         <BrowserRouter>
             <Nav>

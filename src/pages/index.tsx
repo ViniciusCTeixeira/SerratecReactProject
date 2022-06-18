@@ -1,12 +1,12 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Login from './Login/index';
+import {Navbar} from '../components/Navbar';
+import {Footer} from '../components/Footer';
+import {AppRoutes} from "../Routes";
 
 export function App() {
     return (
         <main>
             <Navbar />
-            <Login />
+            <AppRoutes />
             <Footer />
         </main>
     );
