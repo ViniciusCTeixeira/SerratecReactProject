@@ -12,8 +12,6 @@ export const Nav = styled.nav`
   /* Third Nav */
   /* justify-content: flex-start; */
   font-family: Montserrat;
-  margin-bottom:50px;
-  
 `;
 
 export const NavLink = styled(Link)`

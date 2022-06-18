@@ -1,21 +1,13 @@
 import React from "react";
-import {
-    Box,
-    Container,
-    Row,
-    Column,
-    FooterLink,
-    Heading,
-} from "./FooterStyles";
+import {Box, Container, Row, Column, FooterLink, Heading} from "../assets/styles/FooterStyle";
 
-const Footer = () => {
+export default function Footer() {
     return (
         <Box>
             <h1 style={{
                 color: "white",
                 textAlign: "center",
-                marginTop: "-80px",
-                fontFamily: "Montserrat",  
+                fontFamily: "Montserrat",
                 padding:"40px"
             }}>
                 Next
@@ -78,4 +70,3 @@ const Footer = () => {
         </Box>
     );
 };
-export default Footer;

@@ -29,8 +29,6 @@ export const Row = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 20px;
   margin-left:15%;
-
-  
 `;
    
 export const FooterLink = styled.a`
