@@ -9,11 +9,11 @@ interface HeaderProps {
         title: string;
         url: string;
     }>;
-    title: string;
+    img: string;
 }
 
 export default function Navbar(props: HeaderProps) {
-    const { sections, title } = props;
+    const { sections, img } = props;
 
     return (
         <React.Fragment>
@@ -22,7 +22,9 @@ export default function Navbar(props: HeaderProps) {
                     Sign up
                 </Button>
                 <Typography component="h2" variant="h5" color="inherit" align="center" noWrap sx={{ flex: 1 }}>
-                    {title}
+                    <Link color="inherit" href="/">
+                        <img src={img} alt="logo"/>
+                    </Link>
                 </Typography>
                 <Button variant="outlined" size="small" href="/login">
                     Sign up

@@ -20,10 +20,7 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
-import TextField from '@mui/material/TextField';
-import {AddCategoria} from './AddCategoria'
-
-import '../../Assets/Styles/CategoriaStyle.css'
+import {Add} from './Add'
 
 interface Data {
     codigo: number;
@@ -379,7 +376,7 @@ export function Categorias() {
                 control={<Switch checked={dense} onChange={handleChangeDense}/>}
                 label="Ajustar Densidade"
                 />
-                <AddCategoria/>
+                <Add/>
                 </Box>
                 
                 );

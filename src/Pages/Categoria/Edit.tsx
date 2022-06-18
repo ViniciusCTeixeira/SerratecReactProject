@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import "./CategoriaStyle.css"
+import "../../Assets/Styles/CategoriaStyle.css"
 
-export const EditCategoria = () =>{
+export const Edit = () =>{
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
 
