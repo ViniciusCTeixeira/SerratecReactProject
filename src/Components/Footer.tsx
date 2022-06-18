@@ -1,72 +1,37 @@
-import React from "react";
-import {Box, Container, Row, Column, FooterLink, Heading} from "../Assets/Styles/FooterStyle";
+import React from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
-export function Footer() {
+interface FooterProps {description: string; title: string;}
+
+export default function Footer(props: FooterProps) {
+    const { description, title } = props;
+
     return (
-        <Box>
-            <h1 style={{
-                color: "white",
-                textAlign: "center",
-                fontFamily: "Montserrat",
-                padding:"40px"
-            }}>
-                Next
-            </h1>
-            <Container>
-                <Row>
-                    <Column>
-                        <Heading>About Us</Heading>
-                        <FooterLink href="#">Aim</FooterLink>
-                        <FooterLink href="#">Vision</FooterLink>
-                        <FooterLink href="#">Testimonials</FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Services</Heading>
-                        <FooterLink href="#">Writing</FooterLink>
-                        <FooterLink href="#">Internships</FooterLink>
-                        <FooterLink href="#">Coding</FooterLink>
-                        <FooterLink href="#">Teaching</FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Contact Us</Heading>
-                        <FooterLink href="#">Uttar Pradesh</FooterLink>
-                        <FooterLink href="#">Ahemdabad</FooterLink>
-                        <FooterLink href="#">Indore</FooterLink>
-                        <FooterLink href="#">Mumbai</FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Social Media</Heading>
-                        <FooterLink href="#">
-                            <i className="fab fa-facebook-f">
-                                <span style={{ marginLeft: "10px" }}>
-                                    Facebook
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-instagram">
-                                <span style={{ marginLeft: "10px" }}>
-                                    Instagram
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-twitter">
-                                <span style={{ marginLeft: "10px" }}>
-                                    Twitter
-                                </span>
-                            </i>
-                        </FooterLink>
-                        <FooterLink href="#">
-                            <i className="fab fa-youtube">
-                                <span style={{ marginLeft: "10px" }}>
-                                    Youtube
-                                </span>
-                            </i>
-                        </FooterLink>
-                    </Column>
-                </Row>
+        <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
+            <Container maxWidth="lg">
+                <Typography variant="h6" align="center" gutterBottom>
+                    {title}
+                </Typography>
+                <Typography
+                    variant="subtitle1"
+                    align="center"
+                    color="text.secondary"
+                    component="p"
+                >
+                    {description}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" align="center">
+                    {'Copyright © '}
+                    <Link color="inherit" href="https://mui.com/">
+                        Your Website
+                    </Link>{' '}
+                    {new Date().getFullYear()}
+                    {'.'}
+                </Typography>
             </Container>
         </Box>
     );
-};
+}

@@ -4,7 +4,7 @@ import {Login} from './Pages/User/Login';
 import {Home} from './Pages/Home/Home';
 import {Categorias} from './Pages/Categoria/Categorias';
 
-export function AppRoutes() {
+export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
