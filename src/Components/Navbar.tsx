@@ -1,8 +1,8 @@
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import Grid from "@mui/material/Grid";
 
 interface HeaderProps {
     sections: ReadonlyArray<{
@@ -13,26 +13,32 @@ interface HeaderProps {
 }
 
 export default function Navbar(props: HeaderProps) {
-    const { sections, img } = props;
+    const {sections, img} = props;
 
     return (
         <React.Fragment>
-            <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Button variant="outlined" size="small" href="/login">
-                    Sign up
-                </Button>
-                <Typography component="h2" variant="h5" color="inherit" align="center" noWrap sx={{ flex: 1 }}>
-                    <Link color="inherit" href="/">
-                        <img src={img} alt="logo"/>
-                    </Link>
-                </Typography>
-                <Button variant="outlined" size="small" href="/login">
-                    Sign up
-                </Button>
+            <Toolbar sx={{borderBottom: 1, borderColor: 'divider'}}>
+                <Grid container direction="row" alignItems="center" justifyContent="space-around">
+                    <Grid item>
+                        <Button variant="outlined" size="small" href="/register">
+                            Cadastro
+                        </Button>
+                    </Grid>
+                    <Grid item>
+                        <Link color="inherit" href="/">
+                            <img src={img} alt="logo"/>
+                        </Link>
+                    </Grid>
+                    <Grid item>
+                        <Button variant="outlined" size="small" href="/login">
+                            Login
+                        </Button>
+                    </Grid>
+                </Grid>
             </Toolbar>
-            <Toolbar component="nav" variant="dense" sx={{ justifyContent: 'space-evenly', overflowX: 'auto' }}            >
+            <Toolbar component="nav" variant="dense" sx={{justifyContent: 'space-evenly', overflowX: 'auto'}}>
                 {sections.map((section) => (
-                    <Link color="inherit" noWrap key={section.title} variant="body2" href={section.url} sx={{ p: 1, flexShrink: 0 }}>
+                    <Link color="inherit" noWrap key={section.title} variant="body2" href={section.url} sx={{p: 1, flexShrink: 0}}>
                         {section.title}
                     </Link>
                 ))}

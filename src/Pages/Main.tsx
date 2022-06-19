@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import LogoImg from "../Assets/Img/logo.png";
+import LogoImg from "../Assets/Img/logoNova.png";
 
 const theme = createTheme();
 

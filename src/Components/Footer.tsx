@@ -24,12 +24,7 @@ export default function Footer(props: FooterProps) {
                     {description}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" align="center">
-                    {'Copyright © '}
-                    <Link color="inherit" href="https://mui.com/">
-                        Your Website
-                    </Link>{' '}
-                    {new Date().getFullYear()}
-                    {'.'}
+                    {'Copyright © NEXT Eletronicos '+ new Date().getFullYear() + '.'}
                 </Typography>
             </Container>
         </Box>

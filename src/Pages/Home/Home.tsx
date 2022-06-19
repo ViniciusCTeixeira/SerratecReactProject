@@ -78,8 +78,7 @@ export function Home() {
                 <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}
-                    archives={sidebar.archives}
-                    social={sidebar.social}
+                    categories={sidebar.archives}
                 />
             </Grid>
         </main>
