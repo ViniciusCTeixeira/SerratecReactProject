@@ -2,9 +2,6 @@ import Grid from "@mui/material/Grid";
 import Sidebar from "../../Components/Sidebar";
 import Banner from "../../Components/Banner"
 import Cards from "../../Components/Cards"
-import GitHubIcon from "@mui/icons-material/GitHub";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
 
 
 
@@ -13,7 +10,7 @@ export function Home() {
         title: 'About',
         description:
             'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-        archives: [
+        categories: [
             {title: 'March 2020', url: '#'},
             {title: 'February 2020', url: '#'},
             {title: 'January 2020', url: '#'},
@@ -26,11 +23,6 @@ export function Home() {
             {title: 'May 1999', url: '#'},
             {title: 'April 1999', url: '#'},
         ],
-        social: [
-            {name: 'GitHub', icon: GitHubIcon},
-            {name: 'Twitter', icon: TwitterIcon},
-            {name: 'Facebook', icon: FacebookIcon},
-        ],
     };
 
 
@@ -42,6 +34,7 @@ export function Home() {
         image: 'https://source.unsplash.com/random',
         imageText: 'main image description',
         linkText: 'Continue reading…',
+        link: '/'
     };
 
     const featuredPosts = [
@@ -61,24 +54,55 @@ export function Home() {
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
+        {
+            title: 'Post title',
+            date: 'Nov 11',
+            description:
+                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+            image: 'https://source.unsplash.com/random',
+            imageLabel: 'Image Text',
+        },
+        {
+            title: 'Post title',
+            date: 'Nov 11',
+            description:
+                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+            image: 'https://source.unsplash.com/random',
+            imageLabel: 'Image Text',
+        },
+        {
+            title: 'Post title',
+            date: 'Nov 11',
+            description:
+                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+            image: 'https://source.unsplash.com/random',
+            imageLabel: 'Image Text',
+        },
+        {
+            title: 'Post title',
+            date: 'Nov 11',
+            description:
+                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+            image: 'https://source.unsplash.com/random',
+            imageLabel: 'Image Text',
+        },
     ];
 
     return (
         <main>
             <Banner post={mainFeaturedPost}/>
-            <Grid container spacing={4}>
-                {featuredPosts.map((post) => (
-                    <Cards key={post.title} post={post}/>
-                ))}
-            </Grid>
-            <Grid container spacing={5} sx={{mt: 3}}>
-                <Grid item xs={12} md={8}>
-                    <h1>Home</h1>
+            <Grid container spacing={4} sx={{mt: 3}}>
+                <Grid item md={8}>
+                    <Grid container spacing={4}>
+                        {featuredPosts.map((post) => (
+                            <Cards key={post.title} post={post}/>
+                        ))}
+                    </Grid>
                 </Grid>
                 <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}
-                    categories={sidebar.archives}
+                    categories={sidebar.categories}
                 />
             </Grid>
         </main>

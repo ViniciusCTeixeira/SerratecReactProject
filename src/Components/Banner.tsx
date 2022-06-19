@@ -11,6 +11,7 @@ interface BannerProps {
         image: string;
         imageText: string;
         linkText: string;
+        link: string;
         title: string;
     };
 }
@@ -31,7 +32,7 @@ export default function Banner(props: BannerProps) {
                         <Typography variant="h5" color="inherit" paragraph>
                             {post.description}
                         </Typography>
-                        <Link variant="subtitle1" href="#">
+                        <Link variant="subtitle1" href={post.link}>
                             {post.linkText}
                         </Link>
                     </Box>
