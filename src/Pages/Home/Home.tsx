@@ -25,8 +25,6 @@ export function Home() {
         ],
     };
 
-
-
     const mainFeaturedPost = {
         title: 'Title of a longer featured blog post',
         description:
