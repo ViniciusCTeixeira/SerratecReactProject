@@ -16,7 +16,9 @@ export const Auth = {
                 },
             );
 
-            console.log(JSON.stringify(data, null, 4));
+            if(status !== 200){
+                return headers.error;
+            }
 
             return data;
         } catch (error) {

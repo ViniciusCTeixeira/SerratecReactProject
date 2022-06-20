@@ -3,8 +3,6 @@ import Sidebar from "../../Components/Sidebar";
 import Banner from "../../Components/Banner"
 import Cards from "../../Components/Cards"
 
-
-
 export function Home() {
     const sidebar = {
         title: 'About',
