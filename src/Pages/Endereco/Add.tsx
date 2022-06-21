@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import "../../Assets/Styles/CategoriaStyle.css"
 
 export const Add = () =>{
-    const [nome, setNome] = useState("");
-    const [descricao, setDescricao] = useState("");
+    const [cep, setCep] = useState("");
+    const [numero, setNumero] = useState("");
+    const [complemento, setComplemento] = useState("");
 
     return (
         <div className='container'>
@@ -14,15 +15,21 @@ export const Add = () =>{
                             <h1>Adicionar</h1>
                         </div>
                         <div className='wrap-input'>
-                            <label className='focus-input' htmlFor="nome">Nome</label>
-                            <input className={nome !== "" ? "has-val input" : "input"} type="nome" name="nome"
-                                   id="nome" value={nome} onChange={(e) => setNome(e.target.value)}></input>
+                            <label className='focus-input' htmlFor="cep">CEP</label>
+                            <input className={cep !== "" ? "has-val input" : "input"} type="cep" name="cep"
+                                   id="cep" value={cep} onChange={(e) => setCep(e.target.value)}></input>
                         </div>
                         <div className="wrap-input">
-                            <label className='focus-input' htmlFor="descricao">Descrição</label>
-                            <input className={descricao !== "" ? "has-val input" : "input"} type="descricao"
-                                   name="descricao" id="descricao" value={descricao}
-                                   onChange={(e) => setDescricao(e.target.value)}></input>
+                            <label className='focus-input' htmlFor="numero">Número</label>
+                            <input className={numero !== "" ? "has-val input" : "input"} type="numero"
+                                   name="numero" id="numero" value={numero}
+                                   onChange={(e) => setNumero(e.target.value)}></input>
+                        </div>
+                        <div className="wrap-input">
+                            <label className='focus-input' htmlFor="complemento">Complemento</label>
+                            <input className={complemento !== "" ? "has-val input" : "input"} type="complemento"
+                                   name="complemento" id="complemento" value={complemento}
+                                   onChange={(e) => setComplemento(e.target.value)}></input>
                         </div>
                         <div className="ccontainer-login-form-btn">
                             <button className='login-form-btn' type="submit">Enviar</button>
