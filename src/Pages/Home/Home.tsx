@@ -7,10 +7,22 @@ import ApiProdutos from "../../Controllers/ProdutosControlle"
 import ApiCategorias from "../../Controllers/CategoriasController"
 
 export default function Home() {
-    const [categorias, setCategorias] = useState([])
     const sidebar = {
         title: 'About',
         description: 'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+        categories: [
+            {title: 'March 2020', url: '#'},
+            {title: 'February 2020', url: '#'},
+            {title: 'January 2020', url: '#'},
+            {title: 'November 1999', url: '#'},
+            {title: 'October 1999', url: '#'},
+            {title: 'September 1999', url: '#'},
+            {title: 'August 1999', url: '#'},
+            {title: 'July 1999', url: '#'},
+            {title: 'June 1999', url: '#'},
+            {title: 'May 1999', url: '#'},
+            {title: 'April 1999', url: '#'},
+        ],
     };
 
     const mainFeaturedPost = {
@@ -74,22 +86,6 @@ export default function Home() {
         },
     ];
 
-    useEffect(() => {
-        async function getCategorias() {
-            const ListCategorias = await ApiCategorias.getList();
-            console.log(ListCategorias)
-            let categoriaList = [];
-            await ListCategorias.data.map((categoria) => {
-                categoriaList.push({
-                    title: categoria.nome,
-                    url: "#"
-                });
-            })
-            setCategorias(categoriaList);
-        }
-        getCategorias();
-    }, [categorias]);
-
     return (
         <main>
             <Banner post={mainFeaturedPost}/>
@@ -104,7 +100,7 @@ export default function Home() {
                 <Sidebar
                     title={sidebar.title}
                     description={sidebar.description}
-                    categories={categorias}
+                    categories={sidebar.categories}
                 />
             </Grid>
         </main>
