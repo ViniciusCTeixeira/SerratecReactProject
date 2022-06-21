@@ -23,24 +23,32 @@ import {visuallyHidden} from '@mui/utils';
 import {Add} from './Add'
 
 interface Data {
-    codigo: number;
-    nome: string;
-    descricao: string;
+    cep: string;
+    rua: string;
+    bairro: string;
+    cidade: string;
+    numero: number;
+    complemento: string;
+    estado: string;
 }
 
-function createData(  codigo: number, nome: string, descricao: string): Data {
+function createData(  cep: string, rua: string, bairro: string, cidade: string, numero: number, complemento: string, estado: string): Data {
     return {
-       codigo,
-       nome,
-       descricao
+       cep,
+       rua,
+       bairro,
+       cidade,
+       numero,
+       complemento,
+       estado
         
     };
 }
 
 const rows = [
-    createData(1, "Televisão", "Para ver filmes"),
-    createData(2, "Monitor", "Para jogar"),
-    createData(3, "Computador", "Para jogar")
+    createData("25645689", "Rua Marques Silva", "Bonsucesso", "Rio de janeiro", "111", "apt. 42", "RJ"),
+    createData("25745684", "Rua Alberto fernandes", "Alto da serra", "Petropolis", "293", "Casa A", "RJ"),
+    createData("25685683", "Rua Silva Mattos", "Bingen", "Petropolis", "874", "apt. 78", "RJ")
     
 
 ];
@@ -92,22 +100,46 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
     {
-        id: 'codigo',
+        id: 'cep',
         numeric: false,
         disablePadding: true,
-        label: 'Código',
+        label: 'CEP',
     },
     {
-        id: 'nome',
+        id: 'rua',
         numeric: true,
         disablePadding: false,
-        label: 'Nome',
+        label: 'Rua',
     },
     {
-        id: 'descricao',
+        id: 'bairro',
         numeric: true,
         disablePadding: false,
-        label: 'Descrição',
+        label: 'Bairro',
+    },
+    {
+        id: 'cidade',
+        numeric: true,
+        disablePadding: false,
+        label: 'Cidade',
+    },
+    {
+        id: 'numero',
+        numeric: true,
+        disablePadding: false,
+        label: 'Número',
+    },
+    {
+        id: 'complemento',
+        numeric: true,
+        disablePadding: false,
+        label: 'Complemento',
+    },
+    {
+        id: 'estado',
+        numeric: true,
+        disablePadding: false,
+        label: 'Estado',
     },
    
 ];
@@ -203,7 +235,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                     id="tableTitle"
                     component="div"
                 >
-                    Categorias
+                    Endereços
                 </Typography>
             )}
             {numSelected > 0 ? (
@@ -225,7 +257,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
 
 export function Endereco() {
     const [order, setOrder] = React.useState<Order>('asc');
-    const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
+    const [orderBy, setOrderBy] = React.useState<keyof Data>('cep');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
@@ -246,19 +278,19 @@ export function Endereco() {
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
-            const newSelecteds = rows.map((n) => n.nome);
+            const newSelecteds = rows.map((n) => n.cep);
             setSelected(newSelecteds);
             return;
         }
         setSelected([]);
     };
 
-    const handleClick = (event: React.MouseEvent<unknown>, nome: string) => {
-        const selectedIndex = selected.indexOf(nome);
+    const handleClick = (event: React.MouseEvent<unknown>, cep: string) => {
+        const selectedIndex = selected.indexOf(cep);
         let newSelected: readonly string[] = [];
 
         if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, nome);
+            newSelected = newSelected.concat(selected, cep);
         } else if (selectedIndex === 0) {
             newSelected = newSelected.concat(selected.slice(1));
         } else if (selectedIndex === selected.length - 1) {
@@ -286,7 +318,7 @@ export function Endereco() {
         setDense(event.target.checked);
     };
 
-    const isSelected = (nome: string) => selected.indexOf(nome) !== -1;
+    const isSelected = (cep: string) => selected.indexOf(cep) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
@@ -315,17 +347,17 @@ export function Endereco() {
                             {stableSort(rows, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
-                                    const isItemSelected = isSelected(row.nome);
+                                    const isItemSelected = isSelected(row.cep);
                                     const labelId = `enhanced-table-checkbox-${index}`;
 
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, row.nome)}
+                                            onClick={(event) => handleClick(event, row.cep)}
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.nome}
+                                            key={row.cep}
                                             selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
@@ -341,12 +373,16 @@ export function Endereco() {
                                                 component="th"
                                                 id={labelId}
                                                 scope="row"
-                                                padding="none"
+                                                padding="cep"
                                             >
-                                                {row.nome}
+                                                {row.cep}
                                             </TableCell>
-                                            <TableCell align="right">{row.nome}</TableCell>
-                                            <TableCell align="right">{row.descricao}</TableCell>
+                                            <TableCell align="right">{row.rua}</TableCell>
+                                            <TableCell align="right">{row.bairro}</TableCell>
+                                            <TableCell align="right">{row.cidade}</TableCell>
+                                            <TableCell align="right">{row.numero}</TableCell>
+                                            <TableCell align="right">{row.complemento}</TableCell>
+                                            <TableCell align="right">{row.estado}</TableCell>
                                         </TableRow>
                                          );
                                 })}
