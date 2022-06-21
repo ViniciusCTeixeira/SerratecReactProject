@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "../../Assets/Styles/CategoriaStyle.css"
+
 
 export default function Edit() {
     const [nome, setNome] = useState("");

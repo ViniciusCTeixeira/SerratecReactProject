@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "../../Assets/Styles/CategoriaStyle.css"
+
 
 export default function Add() {
     const [cep, setCep] = useState("");
