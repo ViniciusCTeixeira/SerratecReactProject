@@ -21,6 +21,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
 import {Add} from './Add'
+import Button from '@mui/material/Button'
 
 interface Data {
     cep: string;
@@ -46,9 +47,9 @@ function createData(  cep: string, rua: string, bairro: string, cidade: string, 
 }
 
 const rows = [
-    createData("25645689", "Rua Marques Silva", "Bonsucesso", "Rio de janeiro", "111", "apt. 42", "RJ"),
-    createData("25745684", "Rua Alberto fernandes", "Alto da serra", "Petropolis", "293", "Casa A", "RJ"),
-    createData("25685683", "Rua Silva Mattos", "Bingen", "Petropolis", "874", "apt. 78", "RJ")
+    createData("25645689", "Rua Marques Silva", "Bonsucesso", "Rio de janeiro", 111, "apt. 42", "RJ"),
+    createData("25745684", "Rua Alberto fernandes", "Alto da serra", "Petropolis", 293, "Casa A", "RJ"),
+    createData("25685683", "Rua Silva Mattos", "Bingen", "Petropolis", 874, "apt. 78", "RJ")
     
 
 ];
@@ -373,7 +374,7 @@ export function Endereco() {
                                                 component="th"
                                                 id={labelId}
                                                 scope="row"
-                                                padding="cep"
+                                                padding="none"
                                             >
                                                 {row.cep}
                                             </TableCell>
@@ -383,6 +384,7 @@ export function Endereco() {
                                             <TableCell align="right">{row.numero}</TableCell>
                                             <TableCell align="right">{row.complemento}</TableCell>
                                             <TableCell align="right">{row.estado}</TableCell>
+                                            <Button variant="outlined" size="small" href="/enderecos/edit">Editar</Button>
                                         </TableRow>
                                          );
                                 })}
