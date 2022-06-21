@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import "../../Assets/Styles/CategoriaStyle.css"
 
-export const Add = () =>{
+
+export const AddFuncionario = () =>{
     const [email, setEmail] = useState("");
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
     const [nascimento, setNascimento] = useState("");
+
 
     return (
         <div className='container'>

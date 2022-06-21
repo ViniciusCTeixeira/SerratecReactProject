@@ -90,8 +90,8 @@ interface HeadCell {
 const headCells: readonly HeadCell[] = [
     {
         id: 'codigo',
-        numeric: true,
-        disablePadding: false,
+        numeric: false,
+        disablePadding: true,
         label: 'Código',
     },
     {
@@ -335,9 +335,7 @@ export default function Categorias() {
                                                     }}
                                                 />
                                             </TableCell>
-                                            <TableCell id={labelId} align="right">
-                                                {row.codigo}
-                                            </TableCell>
+                                            <TableCell align="left">{row.codigo}</TableCell>
                                             <TableCell align="right">{row.nome}</TableCell>
                                             <TableCell align="right">{row.descricao}</TableCell>
                                         </TableRow>

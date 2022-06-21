@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../Assets/Styles/CategoriaStyle.css"
 
-export const Edit = () =>{
+export const EditFuncionario = () =>{
     const [email, setEmail] = useState("");
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");

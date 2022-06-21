@@ -20,8 +20,8 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
-import {Add} from './Add'
-import Button from '@mui/material/Button'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import EditIcon from '@mui/icons-material/Edit';
 
 interface Data {
     codigo: string;
@@ -243,12 +243,19 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                     </IconButton>
                 </Tooltip>
             ) : (
-                <Tooltip title="Filter list">
-                    <IconButton>
-                        <FilterListIcon/>
+                <Tooltip title="Add">
+                    <IconButton href='/adm/funcionarios/add'>
+                        <AddCircleOutlineIcon/>
                     </IconButton>
                 </Tooltip>
             )}
+            {numSelected === 1 ? (
+                <Tooltip title="Edit">
+                    <IconButton href='/adm/funcionarios/edit'>
+                        <EditIcon/>
+                    </IconButton>
+                </Tooltip>
+            ) : ""}
         </Toolbar>
     );
 };
@@ -375,7 +382,6 @@ export function Funcionario() {
                                             <TableCell align="right">{row.cpf}</TableCell>
                                             <TableCell align="right">{row.telefone}</TableCell>
                                             <TableCell align="right">{row.nascimento}</TableCell>
-                                            <Button variant="outlined" size="small" href="/funcionarios/edit">Editar</Button>
                                         </TableRow>
                                          );
                                 })}
@@ -405,7 +411,6 @@ export function Funcionario() {
                 control={<Switch checked={dense} onChange={handleChangeDense}/>}
                 label="Ajustar Densidade"
                 />
-                <Add/>
                 </Box>
                 
                 );
