@@ -1,22 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid";
 import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
-import InputMask from "react-input-mask";
+import ReactInputMask from "react-input-mask";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper"
 
 export default function Cadastro() {
+    const [nome, setNome] = useState("");
+    const [cpf, setCpf] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [nascimento, setNascimento] = useState("");
+    const [cep, setCep] = useState("");
+    const [numero, setNumero] = useState("");
+    const [complemento, setComplemento] = useState("");
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const handleSubmit = (e: any) => {
-        console.log('oi')
         e.preventDefault()
     };
 
     return (
         <main>
             <Box>
-                <Paper variant="outlined" elevation={24} sx={{p: "10px"}}>
+                <Paper variant="outlined" sx={{p: "10px"}}>
                     <Grid container direction="row" alignItems="center" justifyContent="center">
                         <Grid item>
                             <Typography variant="h4" gutterBottom>Cadastro de Usuario</Typography>
@@ -26,52 +35,52 @@ export default function Cadastro() {
                         <Box component="form" sx={{'& .MuiTextField-root': {m: 1}}} noValidate autoComplete="off" onSubmit={handleSubmit}>
                             <Grid container direction="row" alignItems="center" justifyContent="space-around">
                                 <Grid item md={12}>
-                                    <TextField fullWidth required name="nome" type="text" label="Nome Completo"/>
+                                    <TextField fullWidth required name="nome" type="text" label="Nome Completo" onChange={(e) => setNome(e.target.value)}/>
                                 </Grid>
                                 <Grid item md={4}>
                                     <Grid container direction="column" alignItems="center" justifyContent="flex-start">
                                         <Grid item>
-                                            <InputMask mask="999.999.999-99">
+                                            <ReactInputMask mask="999.999.999-99" onChange={(e) => setCpf(e.target.value)}>
                                                 {() => <TextField fullWidth required name="cpf" type="text" label="CPF"/>}
-                                            </InputMask>
+                                            </ReactInputMask>
                                         </Grid>
                                         <Grid item>
-                                            <InputMask mask="(099) 99999-9999">
+                                            <ReactInputMask mask="(099) 99999-9999" onChange={(e) => setTelefone(e.target.value)}>
                                                 {() => <TextField fullWidth required name="telefone" type="text" label="Telefone"/>}
-                                            </InputMask>
+                                            </ReactInputMask>
                                         </Grid>
                                         <Grid item>
-                                            <InputMask mask="99/99/9999">
+                                            <ReactInputMask mask="99/99/9999" onChange={(e) => setNascimento(e.target.value)}>
                                                 {() => <TextField fullWidth required name="nascimento" type="text" label="Data de nascimento"/>}
-                                            </InputMask>
+                                            </ReactInputMask>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 <Grid item md={4}>
                                     <Grid container direction="column" alignItems="center" justifyContent="flex-start">
                                         <Grid item>
-                                            <InputMask mask="99999-999">
+                                            <ReactInputMask mask="99999-999" onChange={(e) => setCep(e.target.value)}>
                                                 {() => <TextField fullWidth required name="cep" type="text" label="CEP"/>}
-                                            </InputMask>
+                                            </ReactInputMask>
                                         </Grid>
                                         <Grid item>
-                                            <TextField fullWidth required name="numero" type="number" label="Número"/>
+                                            <TextField fullWidth required name="numero" type="number" label="Número" onChange={(e) => setNumero(e.target.value)}/>
                                         </Grid>
                                         <Grid item>
-                                            <TextField fullWidth required name="complemento" type="text" label="Complemento"/>
+                                            <TextField fullWidth required name="complemento" type="text" label="Complemento" onChange={(e) => setComplemento(e.target.value)}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 <Grid item md={4}>
                                     <Grid container direction="column" alignItems="center" justifyContent="flex-start">
                                         <Grid item>
-                                            <TextField fullWidth required name="email" type="email" label="Email"/>
+                                            <TextField fullWidth required name="email" type="email" label="Email" onChange={(e) => setEmail(e.target.value)}/>
                                         </Grid>
                                         <Grid item>
-                                            <TextField fullWidth required name="username" type="text" label="Usuario"/>
+                                            <TextField fullWidth required name="username" type="text" label="Usuario" onChange={(e) => setUsername(e.target.value)}/>
                                         </Grid>
                                         <Grid item>
-                                            <TextField fullWidth required name="password" type="password" label="Password"/>
+                                            <TextField fullWidth required name="password" type="password" label="Password" onChange={(e) => setPassword(e.target.value)}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
