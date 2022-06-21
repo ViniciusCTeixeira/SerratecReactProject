@@ -37,9 +37,9 @@ function createData(codigo: number, nome: string, descricao: string): Data {
 }
 
 const rows = [
-    createData(1, "Televisão", "Para ver filmes"),
-    createData(2, "Monitor", "Para jogar"),
-    createData(3, "Computador", "Para jogar")
+    createData(1, "Eletrodomesticos", "Descrição"),
+    createData(2, "Telemoveis", "Descrição"),
+    createData(3, "Casa", "Descrição")
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {

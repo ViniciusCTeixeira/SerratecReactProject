@@ -22,7 +22,7 @@ export function Main() {
             <Container maxWidth="lg" sx={{p: "20px"}}>
                 <AppRoutes/>
             </Container>
-            <Footer title="Footer" description="Something here to give the footer a purpose!"/>
+            <Footer title="Next Store" description="Eletrodomesticos e muito mais!"/>
         </ThemeProvider>
     );
 }

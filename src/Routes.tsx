@@ -18,6 +18,7 @@ import Cart from "./Pages/User/Cart";
 import ListaProdutos from "./Pages/Produtos/ListaProdutos";
 import AddProduto from "./Pages/Produtos/Add";
 import EditProduto from "./Pages/Produtos/Edit";
+import AddEndereco from "./Pages/Endereco/Add";
 
 export default function AppRoutes() {
     return (
@@ -30,8 +31,9 @@ export default function AppRoutes() {
                 <Route path="/lancamentos" element={<Lancamentos/>}/>
                 <Route path="/categorias" element={<ByCategoria/>}/>
                 <Route path="/cart" element={<Cart/>}/>
-                <Route path="/enderecos" element={<Endereco/>}/>
+                <Route path="enderecos" element={<Endereco/>}/>
                 <Route path="/enderecos/edit" element={<EditEndereco/>}/>
+                <Route path="/enderecos/add" element={<AddEndereco/>}/>
                 <Route path="/adm/funcionarios" element={<Funcionario/>}/>
                 <Route path="/adm/funcionarios/edit" element={<EditFuncionario/>}/>
                 <Route path="/adm/funcionarios/add" element={<AddFuncionario/>}/>

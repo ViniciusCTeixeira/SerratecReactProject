@@ -7,66 +7,59 @@ import Toolbar from "@mui/material/Toolbar";
 
 export default function ByCategoria() {
     const [categorias, setCategorias] = useState([
-        {id: 0, title: 'March 2020', url: '#'},
-        {id: 1, title: 'February 2020', url: '#'},
-        {id: 2, title: 'January 2020', url: '#'},
-        {id: 3, title: 'November 1999', url: '#'},
-        {id: 4, title: 'October 1999', url: '#'},
-        {id: 5, title: 'September 1999', url: '#'},
-        {id: 6, title: 'August 1999', url: '#'},
-        {id: 7, title: 'July 1999', url: '#'},
-        {id: 8, title: 'June 1999', url: '#'},
-        {id: 9, title: 'May 1999', url: '#'},
-        {id: 10, title: 'April 1999', url: '#'},
+        {id: 0, title: 'Eletrodomésticos', url: '#'},
+        {id: 1, title: 'Casa', url: '#'},
+        {id: 2, title: 'Telemóveis', url: '#'},
+
     ]);
     const [categoria, setCategoria] = useState("");
 
     const featuredPosts = [
         {
-            title: 'Featured post',
+            title: 'Celular',
             date: 'Nov 12',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Computador',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Tv',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Geladeira',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Microondas',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Tablet',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },

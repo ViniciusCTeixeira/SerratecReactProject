@@ -249,14 +249,14 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                 </Tooltip>
             ) : (
                 <Tooltip title="Add">
-                    <IconButton href='/adm/enderecos/add'>
+                    <IconButton href='enderecos/add'>
                         <AddCircleOutlineIcon/>
                     </IconButton>
                 </Tooltip>
             )}
             {numSelected === 1 ? (
                 <Tooltip title="Edit">
-                    <IconButton href='/adm/enderecos/edit'>
+                    <IconButton href='enderecos/edit'>
                         <EditIcon/>
                     </IconButton>
                 </Tooltip>

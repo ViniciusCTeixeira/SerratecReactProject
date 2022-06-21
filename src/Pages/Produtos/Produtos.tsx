@@ -6,70 +6,63 @@ import React from "react";
 
 export default function Produtos() {
     const sidebar = {
-        title: 'About',
+        title: 'Sobre',
         description:
-            'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+            'Somos uma empresa especializada em eletrônicos e focada em atender o melhor possivel.',
         categories: [
-            {title: 'March 2020', url: '#'},
-            {title: 'February 2020', url: '#'},
-            {title: 'January 2020', url: '#'},
-            {title: 'November 1999', url: '#'},
-            {title: 'October 1999', url: '#'},
-            {title: 'September 1999', url: '#'},
-            {title: 'August 1999', url: '#'},
-            {title: 'July 1999', url: '#'},
-            {title: 'June 1999', url: '#'},
-            {title: 'May 1999', url: '#'},
-            {title: 'April 1999', url: '#'},
+            {title: 'Eletrodomésticos', url: '#'},
+            {title: 'Telemóveis', url: '#'},
+            {title: 'Casa', url: '#'},
+
         ],
     };
 
     const featuredPosts = [
         {
-            title: 'Featured post',
+            title: 'Celular',
             date: 'Nov 12',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Computador',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Tv',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Geladeira',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Microondas',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
         {
-            title: 'Post title',
+            title: 'Tablet',
             date: 'Nov 11',
             description:
-                'This is a wider card with supporting text below as a natural lead-in to additional content.',
+                'Um produto NextStore feito especialmete para você!',
             image: 'https://source.unsplash.com/random',
             imageLabel: 'Image Text',
         },
