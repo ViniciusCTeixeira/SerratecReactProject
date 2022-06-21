@@ -6,6 +6,7 @@ import  Home from './Pages/Home/Home';
 import  Categorias from './Pages/Categoria/Categorias';
 import  Endereco from './Pages/Endereco/Endereco'
 import  EditCategoria from './Pages/Categoria/Edit';
+import AddEndereco from './Pages/Endereco/Add'
 import  EditEndereco from './Pages/Endereco/Edit'
 import  EditFuncionario from './Pages/Funcionario/Edit'
 import {Funcionario} from './Pages/Funcionario/Funcionario';
@@ -34,6 +35,7 @@ export default function AppRoutes() {
                 <Route path="/adm/categorias/edit" element={<EditCategoria/>}/>
                 <Route path="/adm/categorias/add" element={<AddCategoria/>}/>
                 <Route path="/adm/enderecos/edit" element={<EditEndereco/>}/>
+                <Route path="/adm/enderecos/add" element={<AddEndereco/>}/>
             </Routes>
         </BrowserRouter>
     );

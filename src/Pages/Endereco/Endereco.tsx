@@ -22,6 +22,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
 import Add from './Add'
 import Button from '@mui/material/Button'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import EditIcon from '@mui/icons-material/Edit';
 
 interface Data {
     cep: string;
@@ -246,12 +248,19 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                     </IconButton>
                 </Tooltip>
             ) : (
-                <Tooltip title="Filter list">
-                    <IconButton>
-                        <FilterListIcon/>
+                <Tooltip title="Add">
+                    <IconButton href='/adm/enderecos/add'>
+                        <AddCircleOutlineIcon/>
                     </IconButton>
                 </Tooltip>
             )}
+            {numSelected === 1 ? (
+                <Tooltip title="Edit">
+                    <IconButton href='/adm/enderecos/edit'>
+                        <EditIcon/>
+                    </IconButton>
+                </Tooltip>
+            ) : ""}
         </Toolbar>
     );
 };
@@ -384,7 +393,6 @@ export default function Endereco() {
                                             <TableCell align="right">{row.numero}</TableCell>
                                             <TableCell align="right">{row.complemento}</TableCell>
                                             <TableCell align="right">{row.estado}</TableCell>
-                                            <Button variant="outlined" size="small" href="/enderecos/edit">Editar</Button>
                                         </TableRow>
                                          );
                                 })}
@@ -414,7 +422,6 @@ export default function Endereco() {
                 control={<Switch checked={dense} onChange={handleChangeDense}/>}
                 label="Ajustar Densidade"
                 />
-                <Add/>
                 </Box>
                 
                 );
