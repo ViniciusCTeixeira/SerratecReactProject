@@ -1,15 +1,12 @@
 import axios from 'axios';
 
-const url = "localhost:9090/";
+const url = "http://localhost:9090/";
 
-export const Produtos = {
+let ApiProdutos;
+export default ApiProdutos = {
     getList: async function () {
         try {
-            const { data, status, headers } = await axios.get(url+'produto');
-
-            console.log(JSON.stringify(data, null, 4));
-
-            return data;
+            return await axios.get(url+'produto');
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log('error message: ', error.message);

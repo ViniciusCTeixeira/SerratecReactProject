@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Link from "@mui/material/Link";
 
 interface CardsProps {
     post: {
@@ -13,6 +14,8 @@ interface CardsProps {
         image: string;
         imageLabel: string;
         title: string;
+        link: string;
+        linkText: string;
     };
 }
 
@@ -33,9 +36,9 @@ export default function Cards(props: CardsProps) {
                         <Typography variant="subtitle1" paragraph>
                             {post.description}
                         </Typography>
-                        <Typography variant="subtitle1" color="primary">
-                            Continue reading...
-                        </Typography>
+                        <Link variant="subtitle1" href={post.link}>
+                            {post.linkText}
+                        </Link>
                     </CardContent>
                     <CardMedia
                         component="img"
