@@ -17,9 +17,9 @@ export function Main() {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Container maxWidth="lg">
-                <Navbar sections={sections} img={LogoImg}/>
+            <CssBaseline/>
+            <Navbar sections={sections} img={LogoImg}/>
+            <Container maxWidth="lg" sx={{p: "20px"}}>
                 <AppRoutes/>
             </Container>
             <Footer title="Footer" description="Something here to give the footer a purpose!"/>
