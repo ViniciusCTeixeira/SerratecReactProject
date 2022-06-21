@@ -1,122 +1,105 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Grid from "@mui/material/Grid";
 import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import FilledInput from '@mui/material/FilledInput';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import InputMask from "react-input-mask";
 
 
 interface State {
-  password: string;
-  showPassword: boolean;
+    password: string;
+    showPassword: boolean;
 }
 
-export default function Cadastro(){
-  const [values, setValues] = React.useState<State>({
-    password: '',
-    showPassword: false,
-  });
+export default function Cadastro() {
+    const [values, setValues] = React.useState<State>({
+        password: '',
+        showPassword: false,
+    });
 
-  const handleChange =
-    (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value });
+    const handleChange =
+        (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
+            setValues({...values, [prop]: event.target.value});
+        };
+
+    const handleClickShowPassword = () => {
+        setValues({
+            ...values,
+            showPassword: !values.showPassword,
+        });
     };
 
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
-
-  return (
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-    
-        <TextField
-          id="outlined-read-only-input"
-          label="Nome Completo"
-        />
-        <TextField
-          id="outlined-number"
-          label="CPF"
-        />
-        <TextField
-          id="outlined-helperText"
-          label="Telefone"
-        />
-         <TextField
-          id="outlined-helperText"
-          label="Data de nascimento"
-        />
-         <TextField
-          id="outlined-helperText"
-          label="CEP"
-        />
-         <TextField
-          id="outlined-helperText"
-          label="Número"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-          id="outlined-helperText"
-          label="Complemento"
-        />
-           <TextField
-          required
-          id="outlined-required"
-          label="Email"
-        />
-        <TextField
-          id="outlined-disabled"
-          label="Usuario"
-
-        />
-       
-       <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
-       <OutlinedInput
-         id="outlined-adornment-password"
-         type={values.showPassword ? 'text' : 'password'}
-         value={values.password}
-         onChange={handleChange('password')}
-         endAdornment={
-           <InputAdornment position="end">
-             <IconButton
-               aria-label="toggle password visibility"
-               onClick={handleClickShowPassword}
-               onMouseDown={handleMouseDownPassword}
-               edge="end"
-             >
-               {values.showPassword ? <VisibilityOff /> : <Visibility />}
-             </IconButton>
-           </InputAdornment>
-         }
-         label="Password"
-       />
-         <div>
-                            <button type="submit">Enviar</button>
-                        </div>
-        </div>
-        </Box>
-
-    )};
+    return (
+        <main>
+            <Box>
+                <Card variant="outlined">
+                    <Grid container direction="row" alignItems="center" justifyContent="center">
+                        <Grid item>
+                            <Typography variant="h4" gutterBottom>Cadastro de Usuario</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container direction="row" alignItems="center" justifyContent="space-around">
+                        <Box component="form" sx={{'& .MuiTextField-root': {m: 1}}} noValidate autoComplete="off">
+                            <Grid container direction="row" justifyContent="space-around">
+                                <Grid item md={4}>
+                                    <Grid container direction="column" alignItems="center" justifyContent="flex-start">
+                                        <Grid item>
+                                            <TextField required name="nome" type="text" label="Nome Completo"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <InputMask mask="999.999.999-99">
+                                                <TextField required name="cpf" type="text" label="CPF"/>
+                                            </InputMask>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="telefone" type="text" label="Telefone"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="nascimento" type="text" label="Data de nascimento"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid item md={4}>
+                                    <Grid container direction="column" alignItems="center" justifyContent="flex-start">
+                                        <Grid item>
+                                            <TextField required name="cep" type="text" label="CEP"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="numero" type="number" label="Número"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="complemento" type="text" label="Complemento"/>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid item md={4}>
+                                    <Grid container direction="column" alignItems="center" justifyContent="flex-start">
+                                        <Grid item>
+                                            <TextField required name="email" type="email" label="Email"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="username" type="text" label="Usuario"/>
+                                        </Grid>
+                                        <Grid item>
+                                            <TextField required name="password" type="password" label="Password"/>
+                                        </Grid>
+                                        <div>
+                                            <button type="submit">Enviar</button>
+                                        </div>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Grid>
+                </Card>
+            </Box>
+        </main>
+    )
+};
       
       
