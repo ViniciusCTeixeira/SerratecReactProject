@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../Assets/Styles/CategoriaStyle.css"
 
-export const Add = () =>{
+export default function Add() {
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
 

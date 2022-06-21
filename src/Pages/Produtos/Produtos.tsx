@@ -1,9 +1,10 @@
 import Grid from "@mui/material/Grid";
 import Sidebar from "../../Components/Sidebar";
-import Banner from "../../Components/Banner"
 import Cards from "../../Components/Cards"
+import Typography from "@mui/material/Typography";
+import React from "react";
 
-export default function Home() {
+export default function Produtos() {
     const sidebar = {
         title: 'About',
         description:
@@ -21,16 +22,6 @@ export default function Home() {
             {title: 'May 1999', url: '#'},
             {title: 'April 1999', url: '#'},
         ],
-    };
-
-    const mainFeaturedPost = {
-        title: 'Title of a longer featured blog post',
-        description:
-            "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-        image: 'https://source.unsplash.com/random',
-        imageText: 'main image description',
-        linkText: 'Continue reading…',
-        link: '/'
     };
 
     const featuredPosts = [
@@ -86,8 +77,12 @@ export default function Home() {
 
     return (
         <main>
-            <Banner post={mainFeaturedPost}/>
-            <Grid container spacing={4} sx={{mt: 3}}>
+            <Grid container sx={{mb: 3}}>
+                <Grid item>
+                    <Typography variant="h4">Lista de Produtos</Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={4}>
                 <Grid item md={8}>
                     <Grid container spacing={4}>
                         {featuredPosts.map((post) => (

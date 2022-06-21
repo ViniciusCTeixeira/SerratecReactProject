@@ -20,7 +20,7 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
-import {Add} from './Add'
+import Add from './Add'
 import Button from '@mui/material/Button';
 
 interface Data {
@@ -224,7 +224,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
     );
 };
 
-export function Categorias() {
+export default function Categorias() {
     const [order, setOrder] = React.useState<Order>('asc');
     const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
     const [selected, setSelected] = React.useState<readonly string[]>([]);

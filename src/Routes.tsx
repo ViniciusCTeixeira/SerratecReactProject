@@ -1,12 +1,14 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import {Login} from './Pages/User/Login';
+import Home from './Pages/Home/Home';
+import Produtos from "./Pages/Produtos/Produtos";
+import Lancamentos from "./Pages/Produtos/Lancamentos"
+import Login from './Pages/User/Login';
 import Cadastro from './Pages/User/Cadastro';
-import {Home} from './Pages/Home/Home';
-import {Categorias} from './Pages/Categoria/Categorias';
-import {Endereco} from './Pages/Endereco/Endereco'
-import { Edit as EditCategoria} from './Pages/Categoria/Edit';
-import { Edit as EditEndereco} from './Pages/Endereco/Edit'
+import Categorias from './Pages/Categoria/Categorias';
+import EditCategoria from './Pages/Categoria/Edit';
+import Endereco from './Pages/Endereco/Endereco'
+import EditEndereco from './Pages/Endereco/Edit'
 
 export default function AppRoutes() {
     return (
@@ -15,7 +17,8 @@ export default function AppRoutes() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Cadastro/>}/>
-                <Route path="/produtos" element={<Login/>}/>
+                <Route path="/produtos" element={<Produtos/>}/>
+                <Route path="/lancamentos" element={<Lancamentos/>}/>
                 <Route path="/categorias" element={<Categorias/>}/>
                 <Route path="/enderecos" element={<Endereco/>}/>
                 <Route path="/categorias/edit" element={<EditCategoria/>}/>
