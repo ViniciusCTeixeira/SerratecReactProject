@@ -21,6 +21,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {visuallyHidden} from '@mui/utils';
 import {Add} from './Add'
+import Button from '@mui/material/Button';
+
+function sayHello() {
+    
+  }
 
 interface Data {
     codigo: number;
@@ -347,6 +352,7 @@ export function Categorias() {
                                             </TableCell>
                                             <TableCell align="right">{row.nome}</TableCell>
                                             <TableCell align="right">{row.descricao}</TableCell>
+                                            <Button variant="outlined" size="small" href="/edit">Editar</Button>
                                         </TableRow>
                                          );
                                 })}
