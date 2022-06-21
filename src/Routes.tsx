@@ -12,7 +12,7 @@ import {Funcionario} from './Pages/Funcionario/Funcionario';
 import AddFuncionario from './Pages/Funcionario/Add'
 import AddCategoria from './Pages/Categoria/Add'
 import ByCategoria from "./Pages/Produtos/ByCategoria";
-import Cart from "./Pages/Produtos/Cart"
+import Cart from "./Pages/User/Cart"
 
 export default function AppRoutes() {
     return (
