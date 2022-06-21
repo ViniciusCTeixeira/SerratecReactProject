@@ -260,7 +260,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
     );
 };
 
-export function Funcionario() {
+export default function Funcionario() {
     const [order, setOrder] = React.useState<Order>('asc');
     const [orderBy, setOrderBy] = React.useState<keyof Data>('codigo');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
