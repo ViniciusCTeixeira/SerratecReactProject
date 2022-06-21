@@ -7,9 +7,9 @@ import  Categorias from './Pages/Categoria/Categorias';
 import  Endereco from './Pages/Endereco/Endereco'
 import  EditCategoria from './Pages/Categoria/Edit';
 import  EditEndereco from './Pages/Endereco/Edit'
-import  {EditFuncionario} from './Pages/Funcionario/Edit'
+import  EditFuncionario from './Pages/Funcionario/Edit'
 import {Funcionario} from './Pages/Funcionario/Funcionario';
-import {AddFuncionario} from './Pages/Funcionario/Add'
+import AddFuncionario from './Pages/Funcionario/Add'
 import AddCategoria from './Pages/Categoria/Add'
 import ByCategoria from "./Pages/Produtos/ByCategoria";
 import Cart from "./Pages/Produtos/Cart"
