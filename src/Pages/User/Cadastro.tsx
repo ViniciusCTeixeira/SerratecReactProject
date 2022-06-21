@@ -80,7 +80,7 @@ export default function Cadastro() {
                                             <TextField fullWidth required name="username" type="text" label="Usuario" onChange={(e) => setUsername(e.target.value)}/>
                                         </Grid>
                                         <Grid item>
-                                            <TextField fullWidth required name="password" type="password" label="Password" onChange={(e) => setPassword(e.target.value)}/>
+                                            <TextField fullWidth required name="password" type="password" label="Senha" onChange={(e) => setPassword(e.target.value)}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>

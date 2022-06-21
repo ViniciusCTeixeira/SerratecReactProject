@@ -74,7 +74,7 @@ export default function EditFuncionario() {
                                 </Grid>
                                 <Grid item>
                                     <Button variant="outlined" size="small" type="submit">
-                                        Adicionar
+                                        Cadastro
                                     </Button>
                                 </Grid>
                             </Grid>
