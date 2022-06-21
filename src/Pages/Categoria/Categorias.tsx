@@ -23,10 +23,6 @@ import {visuallyHidden} from '@mui/utils';
 import {Add} from './Add'
 import Button from '@mui/material/Button';
 
-function sayHello() {
-    
-  }
-
 interface Data {
     codigo: number;
     nome: string;
