@@ -19,27 +19,29 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {visuallyHidden} from '@mui/utils';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from '@mui/icons-material/Remove';
 
 interface Data {
     codigo: number;
-    nome: string;
-    descricao: string;
+    produto: string;
+    quantidade: number;
+    valor: number;
 }
 
-function createData(codigo: number, nome: string, descricao: string): Data {
+function createData(codigo: number, produto: string, quantidade: number, valor: number): Data {
     return {
         codigo,
-        nome,
-        descricao
+        produto,
+        quantidade,
+        valor
     };
 }
 
 const rows = [
-    createData(1, "Televisão", "Para ver filmes"),
-    createData(2, "Monitor", "Para jogar"),
-    createData(3, "Computador", "Para jogar")
+    createData(1, "Televisão", 2, 2.5),
+    createData(2, "Monitor", 2, 2.5),
+    createData(3, "Computador", 2, 2.5)
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -89,22 +91,22 @@ interface HeadCell {
 
 const headCells: readonly HeadCell[] = [
     {
-        id: 'codigo',
+        id: 'produto',
         numeric: true,
         disablePadding: false,
-        label: 'Código',
+        label: 'Produto',
     },
     {
-        id: 'nome',
+        id: 'quantidade',
         numeric: true,
         disablePadding: false,
-        label: 'Nome',
+        label: 'Quantidade',
     },
     {
-        id: 'descricao',
+        id: 'valor',
         numeric: true,
         disablePadding: false,
-        label: 'Descrição',
+        label: 'Valor',
     },
 
 ];
@@ -200,26 +202,13 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
                     id="tableTitle"
                     component="div"
                 >
-                    Categorias
+                    Produdos do Carrinho
                 </Typography>
             )}
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
                     <IconButton href='/adm/categorias/edit'>
                         <DeleteIcon/>
-                    </IconButton>
-                </Tooltip>
-            ) : (
-                <Tooltip title="Add">
-                    <IconButton href='/adm/categorias/add'>
-                        <AddCircleOutlineIcon/>
-                    </IconButton>
-                </Tooltip>
-            )}
-            {numSelected === 1 ? (
-                <Tooltip title="Edit">
-                    <IconButton href='/adm/categorias/edit'>
-                        <EditIcon/>
                     </IconButton>
                 </Tooltip>
             ) : ""}
@@ -229,7 +218,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
 
 export default function Categorias() {
     const [order, setOrder] = React.useState<Order>('asc');
-    const [orderBy, setOrderBy] = React.useState<keyof Data>('nome');
+    const [orderBy, setOrderBy] = React.useState<keyof Data>('quantidade');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
@@ -246,7 +235,7 @@ export default function Categorias() {
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
-            const newSelecteds = rows.map((n) => n.nome);
+            const newSelecteds = rows.map((n) => n.produto);
             setSelected(newSelecteds);
             return;
         }
@@ -313,17 +302,17 @@ export default function Categorias() {
                             {stableSort(rows, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
-                                    const isItemSelected = isSelected(row.nome);
+                                    const isItemSelected = isSelected(row.produto);
                                     const labelId = `enhanced-table-checkbox-${index}`;
 
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, row.nome)}
+                                            onClick={(event) => handleClick(event, row.produto)}
                                             role="checkbox"
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
-                                            key={row.nome}
+                                            key={row.produto}
                                             selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
@@ -336,10 +325,22 @@ export default function Categorias() {
                                                 />
                                             </TableCell>
                                             <TableCell id={labelId} align="right">
-                                                {row.codigo}
+                                                {row.produto}
                                             </TableCell>
-                                            <TableCell align="right">{row.nome}</TableCell>
-                                            <TableCell align="right">{row.descricao}</TableCell>
+                                            <TableCell align="right">
+                                                <Tooltip title="Add">
+                                                    <IconButton href='/adm/categorias/add'>
+                                                        <RemoveIcon/>
+                                                    </IconButton>
+                                                </Tooltip>
+                                                {row.quantidade}
+                                                <Tooltip title="Add">
+                                                    <IconButton href='/adm/categorias/add'>
+                                                        <AddIcon/>
+                                                    </IconButton>
+                                                </Tooltip>
+                                            </TableCell>
+                                            <TableCell align="right">{row.valor}</TableCell>
                                         </TableRow>
                                     );
                                 })}

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../Assets/Styles/CategoriaStyle.css"
 
-export const Add = () =>{
+export default function Add() {
     const [cep, setCep] = useState("");
     const [numero, setNumero] = useState("");
     const [complemento, setComplemento] = useState("");

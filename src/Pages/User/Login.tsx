@@ -1,39 +1,47 @@
 import React, {useState} from 'react';
-import "./Style.css"
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
-export function Login() {
-    const [email, setEmail] = useState("");
+export default function Login() {
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+    };
+
     return (
-        <div className='container'>
-            <div className='container-login'>
-                <div className="wrap-login">
-                    <form className='login-form'>
-                        <div className="login-form-title">
-                            <h1>Login</h1>
-                        </div>
-                        <div className='wrap-input'>
-                            <label className='focus-input' htmlFor="email">Email</label>
-                            <input className={email !== "" ? "has-val input" : "input"} type="email" name="email"
-                                   id="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                        </div>
-                        <div className="wrap-input">
-                            <label className='focus-input' htmlFor="password">Senha</label>
-                            <input className={password !== "" ? "has-val input" : "input"} type="password"
-                                   name="password" id="password" value={password}
-                                   onChange={(e) => setPassword(e.target.value)}></input>
-                        </div>
-                        <div className="ccontainer-login-form-btn">
-                            <button className='login-form-btn' type="submit">Entrar</button>
-                        </div>
-                        <div className='text-center'>
-                            <span className='text1'>Não possui conta</span>
-                            <a className='text2' href="#">Criar conta</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <main>
+            <Box>
+                <Paper variant="outlined" sx={{p: "10px", mt: 4, mb: 4}}>
+                    <Grid container direction="row" alignItems="center" justifyContent="center">
+                        <Grid item>
+                            <Typography variant="h4" gutterBottom>Login</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container direction="row" alignItems="center" justifyContent="space-around">
+                        <Box component="form" sx={{'& .MuiTextField-root': {m: 1}}} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                            <Grid container direction="column" alignItems="center" justifyContent="flex-start">
+                                <Grid item>
+                                    <TextField fullWidth required name="username" type="text" label="Usuario" onChange={(e) => setUsername(e.target.value)}/>
+                                </Grid>
+                                <Grid item>
+                                    <TextField fullWidth required name="password" type="password" label="Password" onChange={(e) => setPassword(e.target.value)}/>
+                                </Grid>
+                                <Grid item>
+                                    <Button variant="outlined" size="small" type="submit">
+                                        Logar
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Grid>
+                </Paper>
+            </Box>
+        </main>
     );
 }
