@@ -348,7 +348,7 @@ export function Categorias() {
                                             </TableCell>
                                             <TableCell align="right">{row.nome}</TableCell>
                                             <TableCell align="right">{row.descricao}</TableCell>
-                                            <Button variant="outlined" size="small" href="/edit">Editar</Button>
+                                            <Button variant="outlined" size="small" href="/categorias/edit">Editar</Button>
                                         </TableRow>
                                          );
                                 })}
